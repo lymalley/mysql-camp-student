@@ -365,3 +365,24 @@ FROM baseball.roster R
 INNER JOIN baseball.team T ON R.teamID = T.ID
 INNER JOIN baseball.player P on R.playerID = P.ID
 ;
+
+SELECT * from player;
+SELECT * from team;
+SELECT * from batting;
+SELECT * from roster;
+
+SELECT roster.ID, roster.positon, roster.seasonYear, player.ID, player.lastName, player.firstName, 
+FROM roster 
+INNER JOIN player 
+ON roster.ID = player.RosterID;
+
+SELECT b.ID, b.rank, b.battingAvg, p.lastName, p.firstName from batting b INNER JOIN player p on b.ID = p.ID;
+
+SELECT b.battingAvg, b.ID, t.teamName FROM batting b INNER JOIN team t on b.ID = t.ID ORDER by b.battingAvg DESC;
+
+SELECT * FROM baseball.vbattingleaders;
+SELECT firstName, lastName, ABBR, hits from vbattingleaders ORDER BY hits DESC;
+SELECT firstName, lastName, ABBR, hits from vbattingleaders ORDER BY hits ASC;
+SELECT firstName, lastName, teamName, atbats from vbattingleaders ORDER BY teamName, atbats DESC;
+
+
